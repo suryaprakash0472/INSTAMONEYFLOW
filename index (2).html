@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIBIL Score Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .container {
+            width: 300px;
+            padding: 16px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid black;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="cibil_score"><b>Enter CIBIL Score</b></label>
+        <input type="text" placeholder="Enter CIBIL Score" name="cibil_score" id="cibil_score" required>
+
+        <button onclick="checkCibilScore()">Check Score</button>
+    </div>
+
+    <script>
+        function checkCibilScore() {
+            var cibilScore = document.getElementById("cibil_score").value;
+
+            if (cibilScore < 0 || cibilScore > 900) {
+                alert("Invalid CIBIL Score. Please enter a value between 0 and 900.");
+            } else {
+                if (cibilScore >= 0 && cibilScore <= 299) {
+                    alert("Poor. Consider improving your credit score.");
+                } else if (cibilScore >= 300 && cibilScore <= 499) {
+                    alert("Average. Good job, but there is room for improvement.");
+                } else if (cibilScore >= 500 && cibilScore <= 599) {
+                    alert("Good. Your credit score is above average.");
+                } else if (cibilScore >= 600 && cibilScore <= 699) {
+                    alert("Very Good. Your credit score is near perfect.");
+                } else if (cibilScore >= 700 && cibilScore <= 799) {
+                    alert("Excellent. Your credit score is in the top 10% of the population.");
+                } else if (cibilScore >= 800 && cibilScore <= 899) {
+                    alert("Sangathan. Your credit score is in the top 5% of the population.");
+                } else if (cibilScore >= 900 && cibilScore <= 999) {
+                    alert("Sangathan (Uniform Scale). Your credit score is in the top 1% of the population.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

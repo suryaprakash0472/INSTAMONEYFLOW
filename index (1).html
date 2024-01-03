@@ -1,0 +1,47 @@
+<div id="app">
+    <div v-if="show">
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email">
+
+        <button @click="addUser">Add User</button>
+    </div>
+
+    <div v-if="!show">
+        <h2>User List</h2>
+        <ul>
+            <li v-for="user in users" :key="user.id">
+                {{ user.name }} - {{ user.email }}
+            </li>
+        </ul>
+
+        <button @click="show = true">Add New User</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            name: '',
+            email: '',
+            users: []
+        },
+        methods: {
+            addUser() {
+                const user = {
+                    id: Date.now(),
+                    name: this.name,
+                    email: this.email
+                };
+
+                this.users.push(user);
+                this.show = false;
+            }
+        }
+    });
+</script>

@@ -1,0 +1,9 @@
+<script>
+    function updateDate() {
+        let today = new Date();
+        let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+        document.getElementById('date').innerHTML = date;
+    }
+
+    updateDate();
+</script>
